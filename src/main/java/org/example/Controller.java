@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Controller {
-    private LocalDate localDate;
-    private LocalTime localTime;
-    private Scanner scanner;
+    private final LocalDate localDate;
+    private final LocalTime localTime;
+    private final Scanner scanner;
 
-    private FileHandler fileHandler;
+    private final FileHandler fileHandler;
 
     public Controller() {
         this.localDate = LocalDate.now();
@@ -31,8 +31,11 @@ public class Controller {
 
         while(true){
             System.out.println(); //Break
+            System.out.println("---------------------------------------------------------------------");
+            System.out.println("                          ~~~ MAIN MENU ~~~                          ");
+            System.out.println("---------------------------------------------------------------------");
+            System.out.println(); //Break
 
-            System.out.println("~~~ Main Menu ~~~");
             System.out.println("Would you like to:");            System.out.println("D) Add Deposit");
             System.out.println("P) Make Payment (Debit)");
             System.out.println("L) Ledger");
@@ -51,7 +54,7 @@ public class Controller {
                     break;
                 case "x":
                     System.out.println();
-                    System.out.println("Goodbye!");
+                    System.out.println("*** Goodbye! ***");
                     System.exit(0);
                 default:
                     System.out.println("Please enter 'D', 'P', 'L', or 'X'.");
@@ -65,6 +68,12 @@ public class Controller {
         String vendor;
         String description;
         String amount = "";
+
+        System.out.println(); //Break
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("                         ~~~ ADD DEPOSIT ~~~                         ");
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println(); //Break
 
         while(true){
             System.out.println(); //Break
@@ -116,6 +125,12 @@ public class Controller {
         String vendor;
         String description;
         String amount = "";
+
+        System.out.println(); //Break
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("                        ~~~ MAKE PAYMENT ~~~                         ");
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println(); //Break
 
         while(true){
             System.out.println(); //Break
@@ -190,8 +205,10 @@ public class Controller {
         boolean loopCheck = true;
         while(loopCheck){
             System.out.println(); //Break
-
-            System.out.println("~~~ Ledger ~~~");
+            System.out.println("---------------------------------------------------------------------");
+            System.out.println("                           ~~~ LEDGER ~~~                            ");
+            System.out.println("---------------------------------------------------------------------");
+            System.out.println(); //Break
             System.out.println("Would you like to:");
             System.out.println("A) All");
             System.out.println("D) Deposits");
@@ -230,9 +247,9 @@ public class Controller {
 
         boolean loopCheck = true;
         while(loopCheck){
-            System.out.println(); //Break
-
-            System.out.println("~~~ Reports ~~~");
+            System.out.println("---------------------------------------------------------------------");
+            System.out.println("                          ~~~ REPORTS ~~~                            ");
+            System.out.println("---------------------------------------------------------------------");
             System.out.println("Would you like to:");
             System.out.println("1) Month To Date");
             System.out.println("2) Previous Month");
@@ -273,17 +290,26 @@ public class Controller {
     }
 
     private void printTransaction(List<Transactions> list, String title) {
-        System.out.println("\n=== " + title + " ===");
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("~~~ " + title + "~~~");
+        System.out.println("---------------------------------------------------------------------");
         System.out.println("Date         Time     Description          Vendor             Amount");
         System.out.println("---------------------------------------------------------------------");
 
         for(Transactions t : list){
             System.out.println(t);
         }
+        System.out.println("---------------------------------------------------------------------");
+
+        System.out.println(); //Break
+        System.out.println("* Press Enter to continue");
+        scanner.nextLine();
     }
 
     private void printReport(List<Transactions> list, String title) {
-        System.out.println("\n=== " + title + " ===");
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("~~~ " + title + "~~~");
+        System.out.println("---------------------------------------------------------------------");
         System.out.println("Date         Time     Description          Vendor             Amount");
         System.out.println("---------------------------------------------------------------------");
         double sum = 0;
@@ -294,7 +320,11 @@ public class Controller {
 
         }
         System.out.println("---------------------------------------------------------------------");
-        System.out.println("Total - " + sum);
+        System.out.printf("Total: $%.2f%n", sum);
+
+        System.out.println(); //Break
+        System.out.println("* Press Enter to continue");
+        scanner.nextLine();
     }
 
 
