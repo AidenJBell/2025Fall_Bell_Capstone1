@@ -263,16 +263,16 @@ public class Controller {
 
             switch(userInput){
                 case "1":
-                    printReport(fileHandler.reportMonthToDay(), "Month To Date");
+                    printReport(fileHandler.reportMonthToDay(), "                          ~~~ MONTH TO DATE ~~~");
                     break;
                 case "2":
-                    printReport(fileHandler.reportLastMonth(), "Previous Month");
+                    printReport(fileHandler.reportLastMonth(), "                          ~~~ PREVIOUS MONTH~~~");
                     break;
                 case "3":
-                    printReport(fileHandler.reportYear(), "Year To Date");
+                    printReport(fileHandler.reportYear(), "                          ~~~ YEAR TO DATE ~~~");
                     break;
                 case "4":
-                    printReport(fileHandler.reportLastYear(), "Previous Year");
+                    printReport(fileHandler.reportLastYear(), "                          ~~~ PREVIOUS YEAR ~~~");
                     break;
                 case "5":
                     System.out.println("Please enter the vendor");
@@ -291,7 +291,7 @@ public class Controller {
 
     private void printTransaction(List<Transactions> list, String title) {
         System.out.println("---------------------------------------------------------------------");
-        System.out.println("~~~ " + title + "~~~");
+        System.out.println(title);
         System.out.println("---------------------------------------------------------------------");
         System.out.println("Date         Time     Description          Vendor             Amount");
         System.out.println("---------------------------------------------------------------------");
@@ -308,7 +308,7 @@ public class Controller {
 
     private void printReport(List<Transactions> list, String title) {
         System.out.println("---------------------------------------------------------------------");
-        System.out.println("~~~ " + title + "~~~");
+        System.out.println(title);
         System.out.println("---------------------------------------------------------------------");
         System.out.println("Date         Time     Description          Vendor             Amount");
         System.out.println("---------------------------------------------------------------------");
