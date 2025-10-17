@@ -34,7 +34,7 @@ public class Controller {
 
             System.out.println("~~~ Main Menu ~~~");
             System.out.println("Would you like to:");            System.out.println("D) Add Deposit");
-            System.out.println("P) Make Payment");
+            System.out.println("P) Make Payment (Debit)");
             System.out.println("L) Ledger");
             System.out.println("X) Exit Application");
             userInput = scanner.nextLine().toLowerCase().trim();
@@ -102,8 +102,11 @@ public class Controller {
                     System.out.println("Please input a correct number");
                 }
             }
-
-            writeTransaction(vendor, description, amount);
+            if(userInput.equalsIgnoreCase("x"))
+                break;
+            else{
+                writeTransaction(vendor, description, "-" + amount);
+            }
             break;
         }
     }
@@ -150,8 +153,11 @@ public class Controller {
                     System.out.println("Please input a correct number");
                 }
             }
-
-            writeTransaction(vendor, description, "-" + amount);
+            if(userInput.equalsIgnoreCase("x"))
+                break;
+            else{
+                writeTransaction(vendor, description, "-" + amount);
+            }
             break;
         }
     }
